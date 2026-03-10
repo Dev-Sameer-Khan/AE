@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useI18n } from '../context/I18nContext';
 import { products, brands, categories } from '../data/products';
 import { Search, Filter, X } from 'lucide-react';
+import Seo from '../components/Seo';
 
 const Products = () => {
   const { t, language, dir } = useI18n();
@@ -44,6 +45,11 @@ const Products = () => {
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
+      <Seo
+        title="Products | Ameera Enterprises"
+        description="Browse engines, compressors, spare parts, filters, and maintenance kits. Filter by category and brand to find the right part fast."
+        canonicalPath={`/products${searchParams.toString() ? `?${searchParams.toString()}` : ''}`}
+      />
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-display font-bold text-[var(--color-navy)] mb-4">

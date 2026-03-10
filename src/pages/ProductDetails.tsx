@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { useI18n } from '../context/I18nContext';
 import { products } from '../data/products';
 import { ArrowLeft, ArrowRight, MessageCircle, CheckCircle2, ChevronRight, ChevronLeft } from 'lucide-react';
+import Seo from '../components/Seo';
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -39,6 +40,11 @@ const ProductDetails = () => {
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
+      <Seo
+        title={`${product.name[language]} | Ameera Enterprises`}
+        description={product.description[language]}
+        canonicalPath={`/products/${product.id}`}
+      />
       <div className="container mx-auto px-4 md:px-6">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8 overflow-x-auto whitespace-nowrap pb-2">
@@ -65,6 +71,9 @@ const ProductDetails = () => {
                 alt={product.name[language]}
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
               <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-[var(--color-navy)] shadow-sm">
                 {product.brand}

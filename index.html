@@ -3,11 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+
+    <title>Ameera Enterprises | Heavy Equipment Spare Parts</title>
+    <meta name="description" content="Supplier of heavy equipment spare parts, engines, compressors, filters, and maintenance kits. Serving industrial operations across India, Gulf, and Turkey." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0F172A" />
+
+    <meta property="og:title" content="Ameera Enterprises | Heavy Equipment Spare Parts" />
+    <meta property="og:description" content="Engines, compressors, spare parts, filters, and maintenance kits. Trusted sourcing and dependable support." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/logo.png" />
+
+    <link rel="icon" href="/logo.png" />
+
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- Add schema.org structured data for Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ameera Enterprises",
+        "logo": "/logo.png"
+      }
+    </script>
   </head>
+  <style>
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: #f7fafc;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #fc7b12;
+    border-radius: 8px;
+    border: 2px solid #f7fafc;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff9238;
+  }
+
+  /* For Firefox */
+  html {
+    scrollbar-color: #fc7b12 #f7fafc;
+    scrollbar-width: thin;
+  }
+  /* Optionally add transition for smooth hover */
+  ::-webkit-scrollbar-thumb {
+    transition: background 0.2s;
+  }
+  </style>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

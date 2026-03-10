@@ -93,7 +93,7 @@ const Testimonials = () => {
                 "{testimonial.text[language]}"
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[var(--color-navy)] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="w-12 h-12 bg-[var(--color-orange)] rounded-full flex items-center justify-center text-white font-bold text-lg">
                   {testimonial.name[language].charAt(0)}
                 </div>
                 <div>

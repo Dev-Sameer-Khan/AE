@@ -5,6 +5,7 @@ export const translations = {
       products: "Products",
       about: "About Us",
       contact: "Contact",
+      whatsapp: "Chat with us on Whatsapp"
     },
     hero: {
       title: "Powering Global Industry",
@@ -53,7 +54,7 @@ export const translations = {
     },
     footer: {
       rights: "All rights reserved.",
-      description: "Your trusted partner for heavy machinery and spare parts.",
+      description: "Ameera Enterprises is an India and Saudi Arabia–based company providing best OEM and aftermarket parts, along with genuine engine spare parts and reliable maintenance and repair services for global industries. Delivering quality and trust since 2014.",
     }
   },
   ar: {
@@ -62,6 +63,7 @@ export const translations = {
       products: "المنتجات",
       about: "من نحن",
       contact: "اتصل بنا",
+      whatsapp: "تواصل معنا على الواتس اب"
     },
     hero: {
       title: "تشغيل الصناعة العالمية",
@@ -71,6 +73,7 @@ export const translations = {
     },
     brands: {
       title: "موثوق بها من قبل العلامات التجارية العالمية",
+      Titles : ""
     },
     trending: {
       title: "منتجات مميزة",

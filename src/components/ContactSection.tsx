@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { useI18n } from '../context/I18nContext';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import React from "react";
+import { motion } from "motion/react";
+import { useI18n } from "../context/I18nContext";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const ContactSection = () => {
   const { t, dir } = useI18n();
@@ -17,7 +17,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-5xl font-display font-bold text-[var(--color-navy)] mb-6"
           >
-            {t('contact.title')}
+            {t("contact.title")}
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
@@ -33,14 +33,14 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg text-slate-600 leading-relaxed"
           >
-            {t('contact.subtitle')}
+            {t("contact.subtitle")}
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: dir === 'rtl' ? 50 : -50 }}
+            initial={{ opacity: 0, x: dir === "rtl" ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -51,11 +51,15 @@ const ContactSection = () => {
                 <MapPin size={28} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[var(--color-navy)] mb-2">{t('contact.address')}</h3>
+                <h3 className="text-xl font-bold text-[var(--color-navy)] mb-2">
+                  {t("contact.address")}
+                </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  123 Industrial Estate,<br />
-                  Andheri East, Mumbai,<br />
-                  Maharashtra 400093, India
+                  A 95,
+                  <br />
+                  Imamganj, Aboonagar
+                  <br />
+                  Fatehpur 212601, Uttar Pradesh, India
                 </p>
               </div>
             </div>
@@ -65,10 +69,15 @@ const ContactSection = () => {
                 <Phone size={28} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[var(--color-navy)] mb-2">{t('contact.phone')}</h3>
+                <h3 className="text-xl font-bold text-[var(--color-navy)] mb-2">
+                  {t("contact.phone")}
+                </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  +91 98765 43210<br />
-                  +91 22 1234 5678
+                +91 6387258771
+                  <br />
+                  +91 7905808995
+                  <br />
+                  +966 556031246
                 </p>
               </div>
             </div>
@@ -78,10 +87,13 @@ const ContactSection = () => {
                 <Mail size={28} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[var(--color-navy)] mb-2">{t('contact.email')}</h3>
+                <h3 className="text-xl font-bold text-[var(--color-navy)] mb-2">
+                  {t("contact.email")}
+                </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  info@ameeraenterprises.com<br />
-                  sales@ameeraenterprises.com
+                  contact2ameeraenterprises@gmail.com
+                  <br />
+                 nazimkhan2821@gmail.com
                 </p>
               </div>
             </div>
@@ -91,9 +103,12 @@ const ContactSection = () => {
                 <Clock size={28} />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[var(--color-navy)] mb-2">Business Hours</h3>
+                <h3 className="text-xl font-bold text-[var(--color-navy)] mb-2">
+                  Business Hours
+                </h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Monday - Saturday<br />
+                  Monday - Saturday
+                  <br />
                   9:00 AM - 6:00 PM IST
                 </p>
               </div>
@@ -102,7 +117,7 @@ const ContactSection = () => {
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: dir === 'rtl' ? -50 : 50 }}
+            initial={{ opacity: 0, x: dir === "rtl" ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -110,15 +125,23 @@ const ContactSection = () => {
           >
             <div className="bg-white p-10 md:p-14 rounded-3xl shadow-xl border border-slate-100 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-navy)] rounded-full blur-[100px] opacity-5 translate-x-1/2 -translate-y-1/2" />
-              
+
               <h3 className="text-3xl font-display font-bold text-[var(--color-navy)] mb-8 relative z-10">
                 Send us a Message
               </h3>
-              
-              <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
+
+              <form
+                className="space-y-6 relative z-10"
+                onSubmit={(e) => e.preventDefault()}
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-[var(--color-navy)] mb-2">Full Name</label>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold text-[var(--color-navy)] mb-2"
+                    >
+                      Full Name
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -127,7 +150,12 @@ const ContactSection = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-[var(--color-navy)] mb-2">Email Address</label>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold text-[var(--color-navy)] mb-2"
+                    >
+                      Email Address
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -139,7 +167,12 @@ const ContactSection = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-[var(--color-navy)] mb-2">Phone Number</label>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-semibold text-[var(--color-navy)] mb-2"
+                    >
+                      Phone Number
+                    </label>
                     <input
                       type="tel"
                       id="phone"
@@ -148,7 +181,12 @@ const ContactSection = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-semibold text-[var(--color-navy)] mb-2">Company Name</label>
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-semibold text-[var(--color-navy)] mb-2"
+                    >
+                      Company Name
+                    </label>
                     <input
                       type="text"
                       id="company"
@@ -159,7 +197,12 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-semibold text-[var(--color-navy)] mb-2">Subject</label>
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-semibold text-[var(--color-navy)] mb-2"
+                  >
+                    Subject
+                  </label>
                   <input
                     type="text"
                     id="subject"
@@ -169,7 +212,12 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-[var(--color-navy)] mb-2">Message</label>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-semibold text-[var(--color-navy)] mb-2"
+                  >
+                    Message
+                  </label>
                   <textarea
                     id="message"
                     rows={5}
@@ -180,10 +228,10 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-10 py-4 bg-[var(--color-navy)] text-white font-bold rounded-xl hover:bg-[var(--color-navy-light)] transition-colors flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-10 py-4 bg-[var(--color-orange)] text-white font-bold rounded-xl hover:bg-[var(--color-orange-hover)] cursor-pointer transition-colors flex items-center justify-center gap-2"
                 >
                   <Send size={20} />
-                  {t('contact.send')}
+                  {t("contact.send")}
                 </button>
               </form>
             </div>

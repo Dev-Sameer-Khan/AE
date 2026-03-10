@@ -2,12 +2,18 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { useI18n } from '../context/I18nContext';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import Seo from '../components/Seo';
 
 const Contact = () => {
   const { t, dir } = useI18n();
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
+      <Seo
+        title="Contact | Ameera Enterprises"
+        description="Request quotes, check availability, or get technical support for engines, compressors, and heavy equipment spare parts. Reach our team by phone or email."
+        canonicalPath="/contact"
+      />
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-16 text-center max-w-3xl mx-auto">
           <motion.h1

@@ -112,7 +112,7 @@ const FAQ = () => {
             >
               <button
                 onClick={() => toggleFaq(faq.id)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none cursor-pointer"
               >
                 <span className="text-lg font-bold text-[var(--color-navy)] pr-8">
                   {faq.question[language]}

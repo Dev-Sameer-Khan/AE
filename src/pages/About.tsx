@@ -4,12 +4,18 @@ import { useI18n } from '../context/I18nContext';
 import { Globe2, Award, Users, ShieldCheck } from 'lucide-react';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
+import Seo from '../components/Seo';
 
 const About = () => {
   const { t, dir } = useI18n();
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
+      <Seo
+        title="About Us | Ameera Enterprises"
+        description="Ameera Enterprises supplies premium heavy equipment spare parts across the India–Gulf–Turkey trade corridor. Trusted sourcing, fast logistics, and dependable support."
+        canonicalPath="/about"
+      />
       <div className="container mx-auto px-4 md:px-6">
         {/* Hero Section */}
         <div className="mb-16 text-center max-w-3xl mx-auto">
@@ -51,6 +57,8 @@ const About = () => {
               alt="Global Trade"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-navy)]/80 to-transparent mix-blend-multiply" />
             <div className="absolute bottom-8 left-8 right-8">
