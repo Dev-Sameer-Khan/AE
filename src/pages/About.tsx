@@ -5,6 +5,7 @@ import { Globe2, Award, Users, ShieldCheck } from 'lucide-react';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Seo from '../components/Seo';
+import MissionVisionSection from '../components/MissionVisionSection';
 
 const About = () => {
   const { t, dir } = useI18n();
@@ -42,6 +43,7 @@ const About = () => {
             Ameera Enterprises is a premier supplier of heavy equipment spare parts, bridging the gap between top-tier manufacturers and industrial operations across the India-Gulf-Turkey trade corridor.
           </motion.p>
         </div>
+
 
         {/* Trade Corridor Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
@@ -167,6 +169,8 @@ const About = () => {
           </div>
         </div>
       </div>
+
+          <MissionVisionSection />
       
       <Testimonials />
       <FAQ />

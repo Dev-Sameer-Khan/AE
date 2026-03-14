@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../context/I18nContext";
-import { products, brands } from "../data/products";
+import { PRODUCTS as products, brands } from "../data/products";
 import {
   ArrowRight,
   ArrowLeft,
@@ -16,6 +16,7 @@ import FAQ from "../components/FAQ";
 import ContactSection from "../components/ContactSection";
 import Seo from "../components/Seo";
 import Customers from "../components/Customers";
+import MissionVisionSection from "../components/MissionVisionSection";
 
 const heroSlides = [
   {
@@ -273,7 +274,7 @@ const Home = () => {
                     {product.name[language]}
                   </h3>
                   <p className="text-slate-500 text-sm mb-6 line-clamp-2">
-                    {product.description[language]}
+                    {product.desc[language]}
                   </p>
                   <Link
                     to={`/products/${product.id}`}
@@ -444,6 +445,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <MissionVisionSection />
 
       <Testimonials />
       <ContactSection />

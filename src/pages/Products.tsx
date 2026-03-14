@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { useI18n } from '../context/I18nContext';
-import { products, brands, categories } from '../data/products';
+import { PRODUCTS as products, brands, categories } from '../data/products';
 import { Search, Filter, X } from 'lucide-react';
 import Seo from '../components/Seo';
 
@@ -37,11 +37,15 @@ const Products = () => {
     return products.filter((product) => {
       const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
       const matchesBrand = selectedBrand === 'all' || product.brand === selectedBrand;
-      const matchesSearch = product.name[language].toLowerCase().includes(searchQuery.toLowerCase()) ||
-                            product.description[language].toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesSearch =
+        searchQuery.trim() === "" ||
+        (product.name?.[language]?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+         product.desc?.[language]?.toLowerCase().includes(searchQuery.toLowerCase()));
       return matchesCategory && matchesBrand && matchesSearch;
     });
   }, [selectedCategory, selectedBrand, searchQuery, language]);
+
+  // Removed incorrect use of product + whatsapp in list; the correct logic is below
 
   return (
     <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
@@ -189,46 +193,61 @@ const Products = () => {
                 transition={{ duration: 0.5 }}
                 className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
               >
-                {filteredProducts.map((product) => (
-                  <motion.div
-                    key={product.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.3 }}
-                    className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full"
-                  >
-                    <div className="relative h-56 overflow-hidden bg-slate-100">
-                      <img
-                        src={product.image}
-                        alt={product.name[language]}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        referrerPolicy="no-referrer"
-                      />
-                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-[var(--color-navy)]">
-                        {product.brand}
+                {filteredProducts.map((product) => {
+                  // Whatsapp message and url per product
+                  const whatsappMessage = `Hello Ameera Enterprises, I am interested in inquiring about ${product.name[language]}.`;
+                  const whatsappUrl = `https://wa.me/916387258771?text=${encodeURIComponent(whatsappMessage)}`;
+                  return (
+                    <motion.div
+                      key={product.id}
+                      layout
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.3 }}
+                      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full"
+                    >
+                      <div className="relative h-56 overflow-hidden bg-slate-100">
+                        <img
+                          src={product.image}
+                          alt={product.name[language]}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          referrerPolicy="no-referrer"
+                        />
+                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-[var(--color-navy)]">
+                          {product.brand}
+                        </div>
                       </div>
-                    </div>
-                    <div className="p-6 flex flex-col flex-grow">
-                      <div className="text-xs font-medium text-[var(--color-orange)] mb-2 uppercase tracking-wider">
-                        {product.category}
+                      <div className="p-6 flex flex-col flex-grow">
+                        <div className="text-xs font-medium text-[var(--color-orange)] mb-2 uppercase tracking-wider">
+                          {product.category}
+                        </div>
+                        <h3 className="text-lg font-bold text-[var(--color-navy)] mb-3 line-clamp-2">
+                          {product.name[language]}
+                        </h3>
+                        <p className="text-slate-500 text-sm mb-6 line-clamp-2 flex-grow">
+                          {product.desc[language]}
+                        </p>
+                        <div className="flex flex-col gap-2">
+                          <Link
+                            to={`/products/${product.id}`}
+                            className="inline-flex items-center justify-center w-full py-3 bg-slate-50 text-[var(--color-navy)] font-semibold rounded-lg hover:bg-[var(--color-orange)] hover:text-white transition-colors duration-300 mt-auto"
+                          >
+                            View Details
+                          </Link>
+                          <a
+                            href={whatsappUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center w-full py-3 bg-slate-50 text-[var(--color-navy)] font-semibold rounded-lg hover:bg-[var(--color-orange)] hover:text-white transition-colors duration-300 mt-auto"
+                          >
+                            Inquire Now
+                          </a>
+                        </div>
                       </div>
-                      <h3 className="text-lg font-bold text-[var(--color-navy)] mb-3 line-clamp-2">
-                        {product.name[language]}
-                      </h3>
-                      <p className="text-slate-500 text-sm mb-6 line-clamp-2 flex-grow">
-                        {product.description[language]}
-                      </p>
-                      <Link
-                        to={`/products/${product.id}`}
-                        className="inline-flex items-center justify-center w-full py-3 bg-slate-50 text-[var(--color-navy)] font-semibold rounded-lg group-hover:bg-[var(--color-navy)] group-hover:text-white transition-colors duration-300 mt-auto"
-                      >
-                        View Details
-                      </Link>
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  );
+                })}
               </motion.div>
             )}
           </div>
