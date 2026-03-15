@@ -14,7 +14,7 @@ const MissionVisionSection = () => {
   const { t } = useI18n();
 
   return (
-    <section className="py-24 bg-white">
+    <section className="bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="rounded-3xl p-10 md:p-16 text-[var(--color-navy)] relative overflow-hidden">
           {/* <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-orange)] rounded-full blur-[110px] opacity-20 translate-x-1/2 -translate-y-1/2" />
@@ -36,8 +36,8 @@ const MissionVisionSection = () => {
                 transition={{ duration: 0.6 }}
                 className="bg-slate-50 rounded-2xl p-8 backdrop-blur-sm border border-slate-100 hover:shadow transition-all duration-300 group"
               >
-                <div className="w-16 h-16 group-hover:scale-125 transition-all duration-300  mb-6 rounded-2xl mx-auto lg:mx-0 bg-slate-50 flex items-center justify-center text-[var(--color-orange)]">
-                  <Target size={36} />
+                <div className="w-16 h-16 group-hover:shadow-md shadow transition-all duration-300  mb-6 rounded-2xl mx-auto lg:mx-0 bg-white flex items-center justify-center text-[var(--color-orange)]">
+                  <Target className="group-hover:scale-125 transition-all duration-300" size={36} />
                 </div>
                 <h3 className="text-2xl font-display font-semibold mb-4 text-center lg:text-left">
                   {t("missionVision.missionTitle")}
@@ -54,8 +54,8 @@ const MissionVisionSection = () => {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="bg-slate-50 rounded-2xl p-8 backdrop-blur-sm border border-slate-100 hover:shadow transition-all duration-300 group"
               >
-                <div className="w-16 h-16 group-hover:scale-125 transition-all duration-300 mb-6 rounded-2xl mx-auto lg:mx-0 bg-slate-50 flex items-center justify-center text-[var(--color-orange)]">
-                  <Eye size={36} />
+                <div className="w-16 h-16 group-hover:shadow-md transition-all duration-300 mb-6 rounded-2xl mx-auto lg:mx-0 bg-white shadow flex items-center justify-center text-[var(--color-orange)]">
+                  <Eye className="group-hover:scale-125 transition-all duration-300" size={36} />
                 </div>
                 <h3 className="text-2xl font-display font-semibold mb-4 text-center lg:text-left">
                   {t("missionVision.visionTitle")}
@@ -82,8 +82,8 @@ const MissionVisionSection = () => {
                   transition={{ duration: 0.35, delay: 0.08 * index }}
                   className="bg-slate-50 rounded-2xl p-5 border border-slate-100 flex flex-col items-center text-center hover:shadow transition-all duration-300 group"
                 >
-                  <div className="w-11 h-11 rounded-xl group-hover:scale-150 transition-all duration-300 bg-white/15 flex items-center justify-center text-[var(--color-orange)] mb-3">
-                    <Icon size={22} />
+                  <div className="w-11 h-11 rounded-xl group-hover:shadow-md shadow transition-all duration-300 bg-white flex items-center justify-center text-[var(--color-orange)] mb-3">
+                    <Icon className="group-hover:scale-125 transition-all duration-300" size={22} />
                   </div>
                   <span className="text-2xl font-display font-bold leading-none mb-1">
                     {value}

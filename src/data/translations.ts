@@ -4,7 +4,7 @@ export const translations = {
       home: "Home",
       products: "Products",
       about: "About Us",
-      contact: "Contact",
+      contact: "Contacts",
       whatsapp: "Chat with us on Whatsapp"
     },
     hero: {

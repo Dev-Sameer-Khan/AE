@@ -170,7 +170,7 @@ const Layout = () => {
             </div>
             <div>
               <h4 className="font-semibold mb-4 text-[var(--color-orange)]">
-                {t("nav.products")}
+                Quick Links
               </h4>
               <ul className="space-y-2 text-sm">
                 <li>
@@ -178,7 +178,7 @@ const Layout = () => {
                     to="/products?category=Engines"
                     className="hover:text-[var(--color-orange)] transition-colors"
                   >
-                    Engines
+                    Home
                   </Link>
                 </li>
                 <li>
@@ -186,7 +186,7 @@ const Layout = () => {
                     to="/products?category=Compressors"
                     className="hover:text-[var(--color-orange)] transition-colors"
                   >
-                    Compressors
+                    Products
                   </Link>
                 </li>
                 <li>
@@ -194,7 +194,7 @@ const Layout = () => {
                     to="/products?category=Spare Parts"
                     className="hover:text-[var(--color-orange)] transition-colors"
                   >
-                    Spare Parts
+                    About Us
                   </Link>
                 </li>
                 <li>
@@ -202,7 +202,7 @@ const Layout = () => {
                     to="/products?category=Spare Parts"
                     className="hover:text-[var(--color-orange)] transition-colors"
                   >
-                    Filters
+                    Contacts
                   </Link>
                 </li>
               </ul>
@@ -324,13 +324,13 @@ const Layout = () => {
             <div className="flex items-center gap-4 text-sm text-[var(--color-navy)]">
               <Link
                 className="hover:text-[var(--color-orange)] transition-colors"
-                to="/"
+                to="/terms"
               >
                 TERMS & CONDITIONS
               </Link>
               <Link
                 className="hover:text-[var(--color-orange)] transition-colors"
-                to="/"
+                to="/privacy"
               >
                 PRIVACY POLICY
               </Link>

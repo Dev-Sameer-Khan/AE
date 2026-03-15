@@ -1,11 +1,14 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useI18n } from '../context/I18nContext';
-import { Globe2, Award, Users, ShieldCheck } from 'lucide-react';
+import { Globe2, Award, Users, ShieldCheck, Wrench, CheckCircle2 } from 'lucide-react';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Seo from '../components/Seo';
 import MissionVisionSection from '../components/MissionVisionSection';
+import ContactSection from '../components/ContactSection';
+import { Link } from 'react-router-dom';
+import Customers from '../components/Customers';
 
 const About = () => {
   const { t, dir } = useI18n();
@@ -55,7 +58,7 @@ const About = () => {
             className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&q=80&w=1000"
+              src="/vc.jpeg"
               alt="Global Trade"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
@@ -170,9 +173,99 @@ const About = () => {
         </div>
       </div>
 
-          <MissionVisionSection />
-      
+      <Customers />
+
+      {/* About Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: dir === "rtl" ? 50 : -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-[var(--color-navy)] mb-6 leading-tight">
+                {t("about.title")}
+              </h2>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                {t("about.description")}
+              </p>
+              <div className="space-y-4 mb-10">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center flex-shrink-0 text-[var(--color-orange)]">
+                    <Globe2 size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-[var(--color-navy)]">
+                      Global Reach
+                    </h4>
+                    <p className="text-slate-500 text-sm">
+                      Connecting markets across India, Gulf, and Turkey.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center flex-shrink-0 text-[var(--color-orange)]">
+                    <CheckCircle2 size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-[var(--color-navy)]">
+                      Premium Quality
+                    </h4>
+                    <p className="text-slate-500 text-sm">
+                      Sourcing only genuine and OEM standard parts.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center flex-shrink-0 text-[var(--color-orange)]">
+                    <Wrench size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-[var(--color-navy)]">
+                      Expert Maintenance
+                    </h4>
+                    <p className="text-slate-500 text-sm">
+                      Comprehensive support for diesel machines.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-orange)] text-white font-semibold rounded-lg hover:bg-[var(--color-orange-hover)] transition-colors"
+              >
+                {t("about.readMore")}
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src="/shop.jpeg"
+                alt="Industrial Operations"
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-[var(--color-navy)] mix-blend-multiply opacity-20" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <MissionVisionSection />
+
       <Testimonials />
+      <ContactSection />
       <FAQ />
     </div>
   );

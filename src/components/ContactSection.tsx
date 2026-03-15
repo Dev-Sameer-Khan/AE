@@ -7,7 +7,7 @@ const ContactSection = () => {
   const { t, dir } = useI18n();
 
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
       <div className="mb-16 text-center max-w-3xl mx-auto">
           <motion.h2

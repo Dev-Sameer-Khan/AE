@@ -134,7 +134,7 @@ const Home = () => {
               decoding="async"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-transparent to-black-/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-transparent to-black/50" />
           </motion.div>
         </AnimatePresence>
 
@@ -153,7 +153,7 @@ const Home = () => {
                   ? heroSlides[currentSlide].title
                   : t("hero.title")}
               </h1>
-              <p className="text-lg md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto font-light">
+              <p className="text-lg md:text-2xl text-white mb-10 max-w-2xl mx-auto font-light">
                 {language === "en"
                   ? heroSlides[currentSlide].subtitle
                   : t("hero.subtitle")}
@@ -218,7 +218,7 @@ const Home = () => {
       <Customers />
 
       {/* Featured Products */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
@@ -374,7 +374,6 @@ const Home = () => {
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                 {t("about.description")}
               </p>
-
               <div className="space-y-4 mb-10">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center flex-shrink-0 text-[var(--color-orange)]">
@@ -433,7 +432,7 @@ const Home = () => {
               className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl"
             >
               <img
-                src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=1000"
+                src="/shop.jpeg"
                 alt="Industrial Operations"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
